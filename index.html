@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple Lights & Switches</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Lights & Switches</h1>
+
+      <div class="lamp" id="lamp">
+        <div class="bulb" id="bulb"></div>
+        <div class="base"></div>
+      </div>
+
+      <div class="switch-container">
+        <div class="switch" id="switch">
+          <div class="switch-button" id="switch-button"></div>
+        </div>
+        <div class="status" id="status">OFF</div>
+      </div>
+    </div>
+
+    <script>
+      const lamp = document.getElementById("lamp");
+      const bulb = document.getElementById("bulb");
+      const switchBtn = document.getElementById("switch-button");
+      const status = document.getElementById("status");
+      const switchContainer = document.getElementById("switch");
+
+      let isOn = false;
+
+      switchContainer.addEventListener("click", function () {
+        isOn = !isOn;
+
+        if (isOn) {
+          bulb.classList.add("on");
+          switchBtn.classList.add("on");
+          status.textContent = "ON";
+          status.classList.add("on");
+          document.body.classList.add("light-on");
+        } else {
+          bulb.classList.remove("on");
+          switchBtn.classList.remove("on");
+          status.textContent = "OFF";
+          status.classList.remove("on");
+          document.body.classList.remove("light-on");
+        }
+      });
+    </script>
+  </body>
+</html>
